@@ -3,6 +3,7 @@ package org.launchcode.techjobs_oo;
 import java.util.Objects;
 
 public class Employer {
+
     private int id;
     private static int nextId = 1;
     private String value;
