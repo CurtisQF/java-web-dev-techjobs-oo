@@ -104,7 +104,7 @@ public class Job {
         //If the Job only contains ID, return custom error message
         if (this.name == null && this.employer == null  && this.location == null
                 && this.positionType == null && this.coreCompetency == null) {
-            returnString = "OOPS! This job does not seem to exist.";
+            returnString = "OOPS! This job does not seem to exist.\n\n";
         } else {
             returnString = "ID: " + this.id + "\nName: " + this.name;
 
@@ -129,9 +129,9 @@ public class Job {
             }
             //Core Competency
             if (this.coreCompetency.getValue() == "") {
-                returnString += "\nCore Competency: Data not available";
+                returnString += "\nCore Competency: Data not available\n\n";
             } else {
-                returnString += "\nCore Competency: " + this.coreCompetency.getValue();
+                returnString += "\nCore Competency: " + this.coreCompetency.getValue() + "\n\n";
             }
         }
         return returnString;
