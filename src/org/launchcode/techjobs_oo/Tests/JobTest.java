@@ -56,4 +56,20 @@ public class JobTest {
         assertFalse(test_job3 == test_job4);
     }
 
+    @Test
+    public void testToString() {
+        //Test complete constructor
+        assertEquals("ID: " + test_job4.getId() + "\nName: Product tester" +
+                "\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control" +
+                "\nCore Competency: Persistence", test_job4.toString());
+        //Test with an empty field
+        Job test_job5 = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency(""));
+        assertEquals("ID: " + test_job5.getId() + "\nName: Product tester" +
+                "\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control" +
+                "\nCore Competency: Data not available", test_job5.toString());
+        //Test if the Job only contains the ID field
+        assertEquals("OOPS! This job does not seem to exist.", test_job2.toString());
+    }
+
 }

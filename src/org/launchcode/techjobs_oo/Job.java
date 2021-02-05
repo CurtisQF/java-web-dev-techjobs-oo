@@ -95,4 +95,45 @@ public class Job {
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+
+    //Methods
+    @Override
+    public String toString() {
+        String returnString = "";
+
+        //If the Job only contains ID, return custom error message
+        if (this.name == null && this.employer == null  && this.location == null
+                && this.positionType == null && this.coreCompetency == null) {
+            returnString = "OOPS! This job does not seem to exist.";
+        } else {
+            returnString = "ID: " + this.id + "\nName: " + this.name;
+
+            //Add object type and its value to returnString; if a value is blank add "Data not available"
+            //Employer
+            if (this.employer.getValue() == "") {
+                returnString += "\nEmployer: Data not available";
+            } else {
+                returnString += "\nEmployer: " + this.employer.getValue();
+            }
+            //Location
+            if (this.location.getValue() == "") {
+                returnString += "\nLocation: Data not available";
+            } else {
+                returnString += "\nLocation: " + this.location.getValue();
+            }
+            //Position Type
+            if (this.positionType.getValue() == "") {
+                returnString += "\nPosition Type: Data not available";
+            } else {
+                returnString += "\nPosition Type: " + this.positionType.getValue();
+            }
+            //Core Competency
+            if (this.coreCompetency.getValue() == "") {
+                returnString += "\nCore Competency: Data not available";
+            } else {
+                returnString += "\nCore Competency: " + this.coreCompetency.getValue();
+            }
+        }
+        return returnString;
+    }
 }
